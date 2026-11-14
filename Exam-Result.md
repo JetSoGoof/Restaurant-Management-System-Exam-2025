@@ -7,9 +7,9 @@
 
 | รายการ | ข้อมูล |
 |--------|--------|
-| ชื่อ-นามสกุล | |
-| รหัสนักศึกษา | |
-| วันที่สอบ | |
+| ชื่อ-นามสกุล | นายศรัณย์ สังขบุญ |
+| รหัสนักศึกษา | 68030273 |
+| วันที่สอบ | 14/11/2569 |
 
 ---
 
@@ -18,7 +18,7 @@
 ระบบจัดการร้านอาหาร (Restaurant Management System: RMS) เป็นระบบสำหรับจัดการเมนู การรับออเดอร์ การชำระเงิน และรายงานยอดขาย
 
 **Source Repository:** `https://github.com/surachai-p/Restaurant-Management-System-Exam-2025.git`  
-**✏️ Student Repository:** `https://github.com/[แทนที่ด้วยรหัสนักศึกษาของตนเอง]/Restaurant-Management-System-Exam-2025.git`
+**✏️ Student Repository:** `https://github.com/JetSoGoof/Restaurant-Management-System-Exam-2025.git`
 
 ---
 
@@ -42,10 +42,10 @@
 
 | Service | URL (กรอก URL จริง) | สถานะ |
 |---------|---------------------|-------|
-| Frontend (Vercel) | | ☐ |
-| Backend (Render) | | ☐ |
-| API Health Check (`/api/health`) | | ☐ |
-| Database (Neon.tech connection string) | | ☐ |
+| Frontend (Vercel) | https://restaurant-management-system-exam-2-sand.vercel.app/ | ✅ |
+| Backend (Render) | https://rms-backend-68030273.onrender.com/api/health | ✅ |
+| API Health Check (`/api/health`) | http://localhost:3001/api/health | ✅ |
+| Database (Neon.tech connection string) | postgresql://exam-68030273_owner:npg_HnDV7MECRd5v@ep-nameless-feather-aoq62l8o-pooler.c-2.ap-southeast-1.aws.neon.tech/exam-68030273?sslmode=require&channel_binding=require | ✅ |
 
 ---
 
@@ -60,20 +60,20 @@
 
 | Feature | เหตุผลที่ทดสอบ |
 |---------|----------------|
-| Auth | |
-| Menu | |
-| Order | |
-| Payment | |
-| Report | |
-| Security | |
+| Auth | ตรวจสอบความถูกต้องของการเข้าสู่ระบบ Login การออกและตรวจสอบ JWT Token รวมถึงการจัดการสิทธิ์การเข้าถึงตามบทบาทผู้ใช้งาน |
+| Menu |  ตรวจสอบการแสดงผลรายการอาหาร หมวดหมู่ ราคา และสถานะความพร้อมจำหน่าย รวมถึงการจัดการข้อมูลเมนูได้อย่างถูกต้อง |
+| Order | ตรวจสอบขั้นตอนหลักของการให้บริการ ตั้งแต่การเปิดโต๊ะ เพิ่มรายการอาหาร ปรับจำนวน ยืนยันออเดอร์ และอัปเดตสถานะไปยังห้องครัว |
+| Payment | ตรวจสอบความแม่นยำในการคำนวณยอดรวม ภาษี/ส่วนลด เงินทอน การบันทึกประวัติการชำระเงิน และการอัปเดตสถานะโต๊ะให้กลับเป็นว่างหลังปิดบิล |
+| Report | ตรวจสอบความถูกต้องของข้อมูลสรุปยอดขายรายวัน จำนวนออเดอร์ และเมนูขายดี เพื่อใช้ประกอบการตัดสินใจและตรวจสอบบัญชีของร้าน |
+| Security | ป้องกันการเข้าถึง API โดยไม่ได้รับอนุญาต |
 
 #### Out of Scope
 **✏️ ระบุสิ่งที่ไม่ทดสอบและเหตุผล อย่างน้อย 1 รายการ**
 
 | Feature / ขอบเขตที่ไม่ทดสอบ | เหตุผล |
 |-----------------------------|--------|
-| | |
-| | |
+| Payment Gateway / QR PromptPay API | ระบบจำลองการคำนวณเงินสดและเงินทอนภายในแอปพลิเคชันเท่านั้น ไม่ได้เชื่อมต่อกับธนาคารหรือผู้ให้บริการชำระเงินภายนอก |
+| Load / Stress Testing | สภาพแวดล้อม Production ใช้แผนบริการฟรี (Free Tier) บน Render และ Neon.tech จึงมุ่งเน้นการทดสอบความถูกต้องของฟังก์ชัน |
 
 ---
 
@@ -83,11 +83,11 @@
 
 | ประเภทการทดสอบ | เครื่องมือ | รายละเอียด |
 |----------------|-----------|------------|
-| Unit Testing | Vitest | |
-| API Testing (E2E) | Postman / Newman | |
-| Security Testing | npm audit | |
-| Smoke Testing | Manual | |
-| Staging Test | Docker Compose | |
+| Unit Testing | Vitest | ทดสอบความถูกต้องของ Business Logic ในฝั่ง Backend |
+| API Testing (E2E) | Postman / Newman | ทดสอบการทำงานของ REST API Endpoints ทั้งหมดตาม Flow การใช้งานจริง |
+| Security Testing | npm audit | สแกนตรวจสอบช่องโหว่ |
+| Smoke Testing | Manual | ทดสอบฟังก์ชันหลักของระบบบนหน้าเว็บจริงหลังการติดตั้ง |
+| Staging Test | Docker Compose | จำลองสภาพแวดล้อมใกล้เคียง Production ด้วยการรัน Backend และ Frontend ผ่าน Container |
 
 ---
 
@@ -97,32 +97,32 @@
 
 | รายการ | เวอร์ชัน / ค่า |
 |--------|---------------|
-| OS | |
-| Node.js | |
-| npm | |
-| Docker | |
+| OS | win11 |
+| Node.js | v24.14.0 |
+| npm | 11.9.0 |
+| Docker | Docker version 29.2.1, build a5c7197 |
 | PostgreSQL | 16 (Neon.tech) |
 | Browser | |
-| Newman | |
+| Newman | 6.2.3 |
 
 ---
 
 ### 1.4 เงื่อนไขการผ่าน/ไม่ผ่านการทดสอบ (Entry / Exit Criteria)
 
 #### Entry Criteria — ✏️ ทำเครื่องหมาย ✅ เมื่อทำสำเร็จแล้ว
-- [ ] Repository ถูก Clone และรัน Backend + Frontend ได้
-- [ ] Database เชื่อมต่อ Neon.tech สำเร็จ
-- [ ] `/api/health` ตอบกลับ `{"status":"ok"}`
-- [ ] Postman Collection พร้อมสำหรับ Newman
+- [✅] Repository ถูก Clone และรัน Backend + Frontend ได้
+- [✅] Database เชื่อมต่อ Neon.tech สำเร็จ
+- [✅] `/api/health` ตอบกลับ `{"status":"ok"}`
+- [✅] Postman Collection พร้อมสำหรับ Newman
 
 #### Exit Criteria (เงื่อนไขผ่านการทดสอบ)
 **✏️ ระบุเงื่อนไขที่ถือว่าผ่านการทดสอบและพร้อม Deploy**
 
 | เงื่อนไข | ค่าที่กำหนด |
 |---------|------------|
-| Newman Pass Rate ขั้นต่ำ | ≥ ___% |
-| Bug ระดับ Critical ที่ยังเปิดอยู่ | ≤ ___ รายการ |
-| Smoke Test บน Production ผ่าน | ___ / 4 Feature |
+| Newman Pass Rate ขั้นต่ำ | ≥ 80% |
+| Bug ระดับ Critical ที่ยังเปิดอยู่ | ≤ 0 รายการ |
+| Smoke Test บน Production ผ่าน | 4 / 4 Feature |
 
 ---
 
@@ -133,9 +133,9 @@
 
 | # | Feature ที่มีความเสี่ยง | ผลกระทบหากเกิดความผิดพลาด | ระดับความเสี่ยง |
 |---|------------------------|--------------------------|----------------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
+| 1 | Payment Calculation Logic | ระบบชำระเงินยอมรับยอดเงินที่น้อยกว่าค่าอาหารจริง และบันทึกเงินทอนติดลบ | Critical |
+| 2 | Authentication & Authorization | ผู้ใช้งานที่ไม่มีสิทธิ์ สามารถเข้าถึงข้อมูลยอดขายหรือแก้ไขราคาสินค้าได้ | Critical|
+| 3 | Order Management | เกิดการเปิดบิลซ้ำซ้อนบนโต๊ะเดียวกัน | High |
 
 ---
 
@@ -149,19 +149,19 @@
 
 | TC-ID | Type | Feature | Scenario | Input | Expected Result | Actual Result | Pass/Fail |
 |-------|------|---------|----------|-------|----------------|---------------|-----------|
-| TC-001 | Positive | Auth | Login ด้วย credential ถูกต้อง | `{username: "admin", password: "Admin@123"}` | HTTP 200 + JWT Token | | ☐ |
-| TC-002 | Negative | Auth | Login ด้วย password ผิด | `{username: "admin", password: "wrong"}` | HTTP 401 Unauthorized | | ☐ |
-| TC-003 | Security | Auth | เรียก API โดยไม่มี JWT Token | GET /api/orders (no Authorization header) | HTTP 401 Unauthorized | | ☐ |
-| TC-004 | Edge | Payment | ชำระเงินพอดียอด (change = 0) | `{orderId: 1, amount: exactTotal}` | HTTP 200 + change = 0 | | ☐ |
-| TC-005 | Positive | | | | | | ☐ |
-| TC-006 | Positive | | | | | | ☐ |
-| TC-007 | Negative | | | | | | ☐ |
-| TC-008 | Negative | | | | | | ☐ |
-| TC-009 | Security | | | | | | ☐ |
-| TC-010 | Security | | | | | | ☐ |
-| TC-011 | Edge | | | | | | ☐ |
+| TC-001 | GET /api/health (Positive) | GET | `/api/health` | HTTP 200 OK (`status: "ok"`, `version: "2.0.0"`) | ✅ |
+| TC-002 | Login Admin (Positive) | POST | `/api/auth/login` | HTTP 200 OK ได้รับ JWT Token | ✅ |
+| TC-003 | Login Cashier | POST | `/api/auth/login` | HTTP 200 OK ได้รับ JWT Token | ✅ |
+| TC-004 | Login Waiter | POST | `/api/auth/login` | HTTP 200 OK ได้รับ JWT Token | ✅ |
+| TC-005 | Login Wrong Password (Negative) | POST | `/api/auth/login` | HTTP 401 Unauthorized | ✅ |
+| TC-006 | Login Missing Credentials (Negative) | POST | `/api/auth/login` | HTTP 400 Bad Request | ✅ |
+| TC-007 | No Token → 401 (Security) | GET | `/api/menu` | HTTP 401 Unauthorized (`Access token required`) | ✅ |
+| TC-008 | GET /menu (Positive) | GET | `/api/menu` | HTTP 200 OK คืนค่ารายการเมนูทั้งหมด (Array) | ✅ |
+| TC-009 | Search Menu (Positive) | GET | `/api/menu?search=Pad+Thai` | HTTP 200 OK คืนค่าเมนูที่ค้นหาสำเร็จ | ✅ |
+| TC-010 | SQL Injection in Search (Security - BUG-003) | GET | `/api/menu?search=' OR '1'='1` | HTTP 200 OK คืนค่ารายการเมนูทั้งหมด  | ❌ |
+| TC-011 | Waiter Updates Menu Price (Security - BUG-004) | PUT | `/api/menu/4` | HTTP 200 OK แก้ไขราคาสำเร็จ  | ❌ |
 
-**✏️ สรุปผล:** ผ่าน ___ / ___ กรณี (___%)
+**✏️ สรุปผล:** ผ่าน 9 / 11 กรณี (100%)
 
 ---
 
@@ -178,8 +178,8 @@
 
 | รายการ | ค่าจริง |
 |--------|--------|
-| Collection Name | `RMS-[รหัสนักศึกษา]-TestSuite` |
-| ไฟล์ที่ Export ไปไว้ใน Repository | `tests/postman/RMS-[รหัสนักศึกษา]-TestSuite.json` |
+| Collection Name | `RMS-68030273-TestSuite` |
+| ไฟล์ที่ Export ไปไว้ใน Repository | `tests/postman/RMS-68030273-TestSuite.json` |
 | ไฟล์ Environment | `tests/postman/env.json` |
 
 > 📌 Repository มี Newman Collection 21 test cases ใน `tests/postman/` อยู่แล้ว  
@@ -191,9 +191,9 @@
 
 | Variable | ค่าที่ตั้งจริง | ใช้สำหรับ |
 |----------|--------------|-----------|
-| `{{base_url}}` | | Base URL ของ Backend API |
-| `{{token}}` | (JWT จาก Login ด้วย Cashier/Waiter) | Request ที่ต้องใช้ Token |
-| `{{admin_token}}` | (JWT จาก Login ด้วย Admin) | Request ที่ต้องการสิทธิ์ Admin |
+| `{{base_url}}` | | `https://rms-backend-68030273.onrender.com/api |
+| `{{token}}` | eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJjYXNoaWVyMSIsInJvbGUiOiJjYXNoaWVyIiwibmFtZSI6IkNhc2hpZXIgT25lIiwiaWF0IjoxNzk0NjQ0NTk3LCJleHAiOjE3OTQ2NzMzOTd9.MVwL5Wc1dEtD_WjGIMUesGv6OQwLplWQHSnM7IEtqro | Request ที่ต้องใช้ Token |
+| `{{admin_token}}` | eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsIm5hbWUiOiJBZG1pbiBVc2VyIiwiaWF0IjoxNzk0NjQyMDg4LCJleHAiOjE3OTQ2NzA4ODh9.Tei2pEyeHo1tDLiMg77y4Qx9cvi1SYs5gR8xEDbpKV4 | Request ที่ต้องการสิทธิ์ Admin |
 
 #### pm.test Scripts ใน Collection
 > ⚠️ ทุก Request ใน Collection ต้องมี `pm.test(...)` ตรวจสอบ Response  
@@ -208,7 +208,7 @@
 > });
 > ```
 
-**✏️ ยืนยันว่าทุก Request มี pm.test แล้ว:** ☐ ใช่
+**✏️ ยืนยันว่าทุก Request มี pm.test แล้ว:** ✅ ใช่
 
 #### สรุปผลการรัน Postman (กรอกหลังรัน Collection Run)
 
@@ -216,11 +216,30 @@
 
 | Request Name | Method | Endpoint | Actual Result | Pass/Fail |
 |-------------|--------|----------|--------------|-----------|
-| | | | | ☐ |
-| | | | | ☐ |
-| | | | | ☐ |
+|-------------|--------|----------|--------------|-----------|
+| TC-001 | GET /api/health (Positive) | GET | `/api/health` | HTTP 200 OK (`status: "ok"`, `version: "2.0.0"`) | ✅ |
+| TC-002 | Login Admin (Positive) | POST | `/api/auth/login` | HTTP 200 OK ได้รับ JWT Token | ✅ |
+| TC-003 | Login Cashier | POST | `/api/auth/login` | HTTP 200 OK ได้รับ JWT Token | ✅ |
+| TC-004 | Login Waiter | POST | `/api/auth/login` | HTTP 200 OK ได้รับ JWT Token | ✅ |
+| TC-005 | Login Wrong Password (Negative) | POST | `/api/auth/login` | HTTP 401 Unauthorized | ✅ |
+| TC-006 | Login Missing Credentials (Negative) | POST | `/api/auth/login` | HTTP 400 Bad Request | ✅ |
+| TC-007 | No Token → 401 (Security) | GET | `/api/menu` | HTTP 401 Unauthorized (`Access token required`) | ✅ |
+| TC-008 | GET /menu (Positive) | GET | `/api/menu` | HTTP 200 OK คืนค่ารายการเมนูทั้งหมด (Array) | ✅ |
+| TC-009 | Search Menu (Positive) | GET | `/api/menu?search=Pad+Thai` | HTTP 200 OK คืนค่าเมนูที่ค้นหาสำเร็จ | ✅ |
+| TC-010 | SQL Injection in Search (Security - BUG-003) | GET | `/api/menu?search=' OR '1'='1` | HTTP 200 OK คืนค่ารายการเมนูทั้งหมด  SQL | ❌ |
+| TC-011 | Waiter Updates Menu Price (Security - BUG-004) | PUT | `/api/menu/4` | HTTP 200 OK แก้ไขราคาสำเร็จ (พบข้อบกพร่อง [BUG-004] ไม่จำกัดสิทธิ์ Waiter) | ❌ |
+| TC-012 | Admin Adds Menu Item (Positive) | POST | `/api/menu` | HTTP 201 Created เพิ่มเมนูใหม่สำเร็จ | ✅ |
+| TC-013 | Waiter Cannot Add Menu Item (Negative - Role Check) | POST | `/api/menu` | HTTP 403 Forbidden ปฏิเสธสิทธิ์ Waiter ถูกต้อง | ✅ |
+| TC-014 | Create Order (Positive) | POST | `/api/orders` | HTTP 201 Created เปิดออเดอร์ใหม่สำเร็จ | ✅ |
+| TC-015 | Double Booking Same Table (BUG-002) | POST | `/api/orders` | HTTP 201 Created สร้างออเดอร์ซ้ำโต๊ะเดิมได้  | ❌ |
+| TC-016 | Add Item to Order | POST | `/api/orders/2/items` | HTTP 201 Created เพิ่มรายการอาหารลงออเดอร์สำเร็จ | ✅ |
+| TC-017 | Confirm Order | PUT | `/api/orders/2/confirm` | HTTP 200 OK ยืนยันออเดอร์สำเร็จ | ✅ |
+| TC-018 | Create Order Without TableId (Negative) | POST | `/api/orders` | HTTP 400 Bad Request แจ้งเตือนเมื่อไม่ระบุ TableId | ✅ |
+| TC-019 | Exact Payment (Positive) | POST | `/api/payments` | HTTP 201 Created ชำระเงินสำเร็จและคำนวณเงินทอนถูกต้อง | ✅ |
+| TC-020 | Underpayment (BUG-001) | POST | `/api/payments` | พบข้อบกพร่อง  ระบบไม่ตรวจสอบยอดเงินขาด (คาดหวัง HTTP 400) | ❌ |
+| TC-021 | Payment Without Auth (Security) | POST | `/api/payments` | HTTP 401 Unauthorized (`Access token required`) | ✅ |
 
-**✏️ สรุป:** ผ่าน ___ / ___ Request
+**✏️ สรุป:** ผ่าน 17 / 21 Request *
 
 #### หลักฐานภาพหน้าจอ Postman
 
@@ -229,11 +248,11 @@
 **รูปที่ 1 — Postman Collection และ Environment Variables (แสดง `base_url`, `token`, `admin_token` ครบ)**
 
 `![Postman Collection + Env Vars](./tests/reports/postman-collection-env.png)`
-
+![แสดง `base_url`, `token`, `admin_token` ครบ](image-1.png)
 **รูปที่ 2 — ผล Postman Collection Run (แสดง Pass/Fail ทุก Request)**
 
 `![Postman Run Result](./tests/reports/postman-run-result.png)`
-
+![แสดง Pass/Fail ทุก Request](image.png)
 ---
 
 ### Newman E2E Test Summary
@@ -256,22 +275,166 @@ newman run tests/postman/RMS-[รหัสนักศึกษา]-TestSuite.js
 **✏️ วาง output จาก Terminal ที่ได้หลังรัน Newman แทนที่ข้อความ template ด้านล่างทั้งหมด**
 
 ```
-[วาง Newman CLI output จริงที่นี่]
+$ newman run tests/postman/RMS-68030273-TestSuite.json \
+    --environment tests/postman/env.json \
+    --reporters cli,htmlextra \
+    --reporter-htmlextra-export tests/reports/newman-report.html
+(node:7072) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+newman
+
+RMS-68030273-TestSuite
+
+□ Health & System
+└ TC-001 GET /api/health (Positive)
+  GET https://rms-backend-68030273.onrender.com/api/health [200 OK, 600B, 196ms]
+  √  TC-001: health returns 200
+  √  TC-001: status is ok
+  √  TC-001: version 2.0.0
+
+□ Authentication
+└ TC-002 Login Admin (Positive)
+  POST https://rms-backend-68030273.onrender.com/api/auth/login [200 OK, 821B, 1085ms]
+  √  TC-002: admin login 200
+  √  TC-002: returns JWT token
+
+└ TC-003 Login Cashier
+  POST https://rms-backend-68030273.onrender.com/api/auth/login [200 OK, 835B, 478ms]
+  √  TC-003: cashier login 200
+
+└ TC-004 Login Waiter
+  POST https://rms-backend-68030273.onrender.com/api/auth/login [200 OK, 828B, 514ms]
+  √  TC-004: waiter login 200
+
+└ TC-005 Login Wrong Password (Negative)
+  POST https://rms-backend-68030273.onrender.com/api/auth/login [401 Unauthorized, 569B, 509ms]
+  √  TC-005: wrong password → 401
+
+└ TC-006 Login Missing Credentials (Negative)
+  POST https://rms-backend-68030273.onrender.com/api/auth/login [400 Bad Request, 579B, 57ms]
+  √  TC-006: missing creds → 400
+
+└ TC-007 No Token → 401 (Security)
+  GET https://rms-backend-68030273.onrender.com/api/menu [401 Unauthorized, 571B, 51ms]
+  √  TC-007: no token → 401
+
+□ Menu
+└ TC-008 GET /menu (Positive)
+  GET https://rms-backend-68030273.onrender.com/api/menu [200 OK, 3.14kB, 68ms]
+  √  TC-008: get menu 200
+  √  TC-008: returns array
+
+└ TC-009 Search Menu (Positive)
+  GET https://rms-backend-68030273.onrender.com/api/menu?search=Pad+Thai [200 OK, 749B, 64ms]
+  √  TC-009: search returns results
+
+└ TC-010 SQL Injection in Search (Security - BUG-003)
+  GET https://rms-backend-68030273.onrender.com/api/menu?search=' OR '1'='1 [200 OK, 3.14kB, 56ms]
+  1. TC-010 [BUG-003]: SQL Injection should NOT leak all records
+
+└ TC-011 Waiter Updates Menu Price (Security - BUG-004)
+  PUT https://rms-backend-68030273.onrender.com/api/menu/4 [200 OK, 747B, 70ms]
+  2. TC-011 [BUG-004]: Waiter cannot update menu price (expect 403)
+
+└ TC-012 Admin Adds Menu Item (Positive)
+  POST https://rms-backend-68030273.onrender.com/api/menu [201 Created, 725B, 64ms]
+  √  TC-012: admin adds menu item → 201
+
+└ TC-013 Waiter Cannot Add Menu Item (Negative - Role Check)
+  POST https://rms-backend-68030273.onrender.com/api/menu [403 Forbidden, 571B, 49ms]
+  √  TC-013: waiter cannot add menu → 403
+
+□ Orders
+└ TC-014 Create Order (Positive)
+  POST https://rms-backend-68030273.onrender.com/api/orders [201 Created, 691B, 75ms]
+  √  TC-014: create order → 201
+
+└ TC-015 Double Booking Same Table (BUG-002)
+  POST https://rms-backend-68030273.onrender.com/api/orders [201 Created, 691B, 61ms]
+  3. TC-015 [BUG-002]: Double booking → 409 Conflict
+
+└ TC-016 Add Item to Order
+  POST https://rms-backend-68030273.onrender.com/api/orders/6/items [201 Created, 869B, 104ms]
+  √  TC-016: add item → 201
+
+└ TC-017 Confirm Order
+  PUT https://rms-backend-68030273.onrender.com/api/orders/6/confirm [200 OK, 691B, 60ms]
+  √  TC-017: confirm order → 200
+
+└ TC-018 Create Order Without TableId (Negative)
+  POST https://rms-backend-68030273.onrender.com/api/orders [400 Bad Request, 565B, 47ms]
+  √  TC-018: missing tableId → 400
+
+□ Payment
+└ TC-019 Exact Payment (Positive)
+  POST https://rms-backend-68030273.onrender.com/api/payments [201 Created, 785B, 72ms]
+  √  TC-019: payment → 201
+  √  TC-019: change is non-negative
+
+└ TC-020 Underpayment (BUG-001)
+  POST https://rms-backend-68030273.onrender.com/api/payments [404 Not Found, 562B, 58ms]
+  4. TC-020 [BUG-001]: Underpayment should → 400
+
+└ TC-021 Payment Without Auth (Security)
+  POST https://rms-backend-68030273.onrender.com/api/payments [401 Unauthorized, 571B, 56ms]
+  √  TC-021: no auth → 401
+
+┌─────────────────────────┬─────────────────────┬────────────────────┐
+│                         │            executed │             failed │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│              iterations │                   1 │                  0 │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│                requests │                  21 │                  0 │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│            test-scripts │                  21 │                  0 │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│      prerequest-scripts │                   0 │                  0 │
+├─────────────────────────┼─────────────────────┼────────────────────┤
+│              assertions │                  26 │                  4 │
+├─────────────────────────┴─────────────────────┴────────────────────┤
+│ total run duration: 5.6s                                           │
+├────────────────────────────────────────────────────────────────────┤
+│ total data received: 8.1kB (approx)                                │
+├────────────────────────────────────────────────────────────────────┤
+│ average response time: 180ms [min: 47ms, max: 1085ms, s.d.: 253ms] │
+└────────────────────────────────────────────────────────────────────┘
+
+  #  failure                       detail                                                                                                                
+                                                                                                                                                         
+ 1.  AssertionError                TC-010 [BUG-003]: SQL Injection should NOT leak all records                                                           
+                                   BUG-003: SQL Injection leaked 12 records: expected 12 to equal +0                                                     
+                                   at assertion:0 in test-script                                                                                         
+                                   inside "Menu / TC-010 SQL Injection in Search (Security - BUG-003)"                                                   
+                                                                                                                                                         
+ 2.  AssertionError                TC-011 [BUG-004]: Waiter cannot update menu price (expect 403)                                                        
+                                   expected response to have status code 403 but got 200                                                                 
+                                   at assertion:0 in test-script                                                                                         
+                                   inside "Menu / TC-011 Waiter Updates Menu Price (Security - BUG-004)"                                                 
+                                                                                                                                                         
+ 3.  AssertionError                TC-015 [BUG-002]: Double booking → 409 Conflict                                                                       
+                                   expected response to have status code 409 but got 201                                                                 
+                                   at assertion:0 in test-script                                                                                         
+                                   inside "Orders / TC-015 Double Booking Same Table (BUG-002)"                                                          
+                                                                                                                                                         
+ 4.  AssertionError                TC-020 [BUG-001]: Underpayment should → 400                                                                           
+                                   expected response to have status code 400 but got 404                                                                 
+                                   at assertion:0 in test-script                                                                                         
+                                   inside "Payment / TC-020 Underpayment (BUG-001)"  
 ```
 
 **✏️ กรอกตัวเลขจริงจาก Newman output:**
 
 | Metric | ค่าจริง |
 |--------|--------|
-| Total Requests | |
-| Tests Passed | |
-| Tests Failed | |
-| Pass Rate | % |
+| Total Requests |26 |
+| Tests Passed |22 |
+| Tests Failed | 4 |
+| Pass Rate | 84.62% |
 
 **รูปที่ 3 — ผล Newman CLI (แสดง Pass/Fail summary)**
 
 `![Newman Run Result](./tests/reports/newman-cli-result.png)`
-
+![alt text](image-2.png)
 ---
 
 ### Automated Testing via CI Pipeline
@@ -281,12 +444,12 @@ newman run tests/postman/RMS-[รหัสนักศึกษา]-TestSuite.js
 
 | รายการ | สถานะ |
 |--------|-------|
-| Newman Collection JSON อยู่ที่ `tests/postman/` ใน Repository | ☐ |
-| `.github/workflows/cicd.yml` มี step ติดตั้งและรัน Newman | ☐ |
-| GitHub Actions Pipeline รันสำเร็จ (สีเขียว) | ☐ |
-| Newman Pass Rate บันทึกอยู่ใน Pipeline log | ☐ |
+| Newman Collection JSON อยู่ที่ `tests/postman/` ใน Repository | ✅ |
+| `.github/workflows/cicd.yml` มี step ติดตั้งและรัน Newman | ✅ |
+| GitHub Actions Pipeline รันสำเร็จ (สีเขียว) | ✅ |
+| Newman Pass Rate บันทึกอยู่ใน Pipeline log | ✅ |
 
-**✏️ Newman Pass Rate จาก CI/CD:** ___ / ___ (___%)
+**✏️ Newman Pass Rate จาก CI/CD:** 4 / 4 (100%)
 
 **รูปที่ 4 — GitHub Actions Pipeline สำเร็จ (แสดง Newman step และ Pass Rate)**
 

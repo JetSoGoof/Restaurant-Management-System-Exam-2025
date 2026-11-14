@@ -37,7 +37,7 @@ services:
     #   db:
     #     condition: service_healthy
     healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://localhost:3001/api/health || exit 1"]
+      test: [ "CMD-SHELL", "wget -qO- http://localhost:3001/api/health || exit 1" ]
       interval: 15s
       timeout: 5s
       retries: 3
@@ -55,6 +55,5 @@ services:
     depends_on:
       backend:
         condition: service_healthy
-
-volumes:
+  #volumes:
   # postgres_data:

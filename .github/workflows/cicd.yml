@@ -56,3 +56,8 @@ jobs:
 
     - name: Run frontend build
       run: cd frontend && npm run build
+
+    - name: Run Newman API Tests
+      run: |
+        npm install -g newman
+        newman run tests/postman/RMS-68030273-TestSuite.json --env-var "base_url=https://rms-backend-68030273.onrender.com/api" --suppress-exit-code    
