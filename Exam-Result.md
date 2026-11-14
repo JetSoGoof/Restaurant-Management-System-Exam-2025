@@ -446,14 +446,14 @@ RMS-68030273-TestSuite
 |--------|-------|
 | Newman Collection JSON อยู่ที่ `tests/postman/` ใน Repository | ✅ |
 | `.github/workflows/cicd.yml` มี step ติดตั้งและรัน Newman | ✅ |
-| GitHub Actions Pipeline รันสำเร็จ (สีเขียว) |  |
-| Newman Pass Rate บันทึกอยู่ใน Pipeline log |  |
+| GitHub Actions Pipeline รันสำเร็จ (สีเขียว) | ✅ |
+| Newman Pass Rate บันทึกอยู่ใน Pipeline log | ✅ |
 
-**✏️ Newman Pass Rate จาก CI/CD:** 2 / 4 (50%)
+**✏️ Newman Pass Rate จาก CI/CD:** 4 / 4 (100%)
 
 **รูปที่ 4 — GitHub Actions Pipeline สำเร็จ (แสดง Newman step และ Pass Rate)**
 
-![alt text](image-3.png)
+![alt text](image-4.png)
 
 ---
 
@@ -471,22 +471,22 @@ cd backend && npm audit --audit-level=moderate
 
 | Severity | จำนวน |
 |----------|-------|
-| Critical | |
-| High | |
-| Medium | |
-| Low | |
-| **รวม** | |
+| Critical | 1 |
+| High |6 |
+| Medium |4 |
+| Low |1 |
+| **รวม** |12 |
 
 **✏️ กรอกรายละเอียด Dependency ที่มีช่องโหว่ระดับ High ขึ้นไป (ถ้าไม่มีให้ระบุ "ไม่พบช่องโหว่")**
 
 | Package | CVE ID | Severity | เวอร์ชันที่มีปัญหา | เวอร์ชันที่ปลอดภัย | สถานะการแก้ไข |
 |---------|--------|----------|--------------------|--------------------|--------------| 
-| | | | | | |
+|proxy-addr |GHSA-jqcg-44mw-7w3h |Critical |1.1.0 - 2.0.7 |> 2.0.7 |มีแพตช์แก้ไข |
 
 **รูปที่ 5 — ผล npm audit Backend**
 
 `![Backend npm audit](./tests/reports/npm-audit-backend.png)`
-
+![alt text](image-5.png)
 ---
 
 ### Frontend Security Scan
@@ -499,19 +499,19 @@ cd frontend && npm audit --audit-level=moderate
 
 | Severity | จำนวน |
 |----------|-------|
-| Critical | |
-| High | |
-| Medium | |
-| Low | |
-| **รวม** | |
+| Critical |0 |
+| High |8 |
+| Medium |6 |
+| Low |1 |
+| **รวม** | 15|
 
 **รูปที่ 6 — ผล npm audit Frontend**
 
 `![Frontend npm audit](./tests/reports/npm-audit-frontend.png)`
-
+![alt text](image-6.png)
 ### Security Scan ใน CI Pipeline (Rubric 1.7 ข้อ 4)
 
-**✏️ ยืนยันว่าได้เพิ่ม `npm audit --audit-level=high` ใน `.github/workflows/cicd.yml` แล้ว:** ☐ ใช่
+**✏️ ยืนยันว่าได้เพิ่ม `npm audit --audit-level=high` ใน `.github/workflows/cicd.yml` แล้ว:** ✅ ใช่
 
 **รูปที่ 7 — GitHub Actions แสดง npm audit step รันสำเร็จ**
 

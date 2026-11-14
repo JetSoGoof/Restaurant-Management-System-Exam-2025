@@ -36,6 +36,10 @@ jobs:
     - name: Install backend dependencies
       run: cd backend && npm ci
 
+    - name: Run npm audit (Backend)
+      continue-on-error: true
+      run: cd backend && npm audit --audit-level=high
+
     - name: Generate Prisma client
       run: cd backend && npx prisma generate
 
