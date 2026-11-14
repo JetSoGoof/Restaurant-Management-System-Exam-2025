@@ -60,4 +60,10 @@ jobs:
     - name: Run Newman API Tests
       run: |
         npm install -g newman
-        newman run tests/postman/RMS-68030273-TestSuite.json --env-var "base_url=https://rms-backend-68030273.onrender.com/api" --suppress-exit-code    
+        newman run tests/postman/RMS-68030273-TestSuite.json --env-var "base_url=https://rms-backend-68030273.onrender.com/api" --suppress-exit-code
+
+    - name: Run backend tests again
+      continue-on-error: true
+      run: cd backend && npm test
+      env:
+        DATABASE_URL: postgresql://postgres:postgres@localhost:5432/rms_test
