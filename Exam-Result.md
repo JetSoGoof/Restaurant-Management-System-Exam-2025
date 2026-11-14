@@ -845,15 +845,15 @@ Build Command:  npm run build
 
 | Metric | ค่าจริง |
 |--------|--------|
-| Total Tests | |
-| Tests Passed | |
-| Tests Failed | |
-| **Pass Rate** | **%** |
+| Total Tests |26 |
+| Tests Passed |22 |
+| Tests Failed |4 |
+| **Pass Rate** | 84.62%** |
 
 **รูปที่ 16 — GitHub Actions Pipeline สำเร็จ (แสดง Newman Pass Rate ใน log)**
 
 `![CI/CD Pipeline](./tests/reports/cicd-pipeline-success.png)`
-
+![alt text](image-21.png)
 ---
 
 *Template สร้างจากข้อสอบปฏิบัติการทดสอบและติดตั้งระบบซอฟต์แวร์เชิงธุรกิจ — PRIME-BSD Model*
